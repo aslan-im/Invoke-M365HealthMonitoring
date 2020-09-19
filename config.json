@@ -1,0 +1,18 @@
+{
+    "ScriptMainConfig":{
+        "RefreshTime": "<Refresh time in minutes>",
+        "TenantConfig":{
+            "clientId" : "<Enter application client ID>",
+            "tenantId" : "<Enter your tenant ID>",
+            "clientSecret" : "<Application client secret>",
+            "graphUrl" : "https://manage.office.com/api"
+        },
+        "TeamsConfig":{
+            "teamsWebhookID" : "<Teams channel webhook ID>"
+        },
+        "TelegramConfig":{
+            "telegramBotToken" : "<Token of your telegram bot>",
+            "telegramChannelId" : "<Telegram chat or channel ID>"
+        }
+    }
+}
