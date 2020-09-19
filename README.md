@@ -19,5 +19,5 @@ telegramChannelId - Enter here chat ID where bot should send notifications. If y
 #Usage example
 Invoke-M365HealthMonitoring.ps1 [-Messenger {All | Telegram | Teams}
 
-Work example
+Work example  
 ![Config_Screen](/images/Readme_image_1.png)  
