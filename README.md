@@ -1,6 +1,6 @@
 # Invoke-M365HealthMonitoring
 Script for checking M365 health and send degradations to Teams and Telegram.
-Use config.json file for configure script credentials, such as:
+Use config.json file for configure script credentials, such as:  
 ![Telegram_Example](/images/Readme_image_2.png)  
 #Tenant configuration
 clientId - ID of AAD registered application
