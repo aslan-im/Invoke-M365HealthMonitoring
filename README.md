@@ -1,6 +1,11 @@
 # Invoke-M365HealthMonitoring
-Script for checking M365 health and send degradations to Teams and Telegram.
-Use config.json file for configure script credentials, such as:
+Script for checking M365 health and send degradations to Teams and Telegram.  
+Pre-requisites:
+1. Created AAD "Office 365 Management APIs" Application with app permissions "ServiceHealth.Read"
+2. If you want to receive alerts to Teams channel, you need to add Teams Webhook application to the channel firstly  
+3. If you want to receive alers to Telegram channel/chat, need to create telegram bot
+
+Use config.json file for configure script credentials, such as:  
 ![Telegram_Example](/images/Readme_image_2.png)  
 #Tenant configuration
 clientId - ID of AAD registered application
@@ -19,5 +24,5 @@ telegramChannelId - Enter here chat ID where bot should send notifications. If y
 #Usage example
 Invoke-M365HealthMonitoring.ps1 [-Messenger {All | Telegram | Teams}
 
-Messages example (image is clickable) 
+Messages example (image is clickable)  
 [![Telegram_Example](/images/Readme_image_1.png)](https://t.me/M365_Health)
