@@ -10,7 +10,7 @@ import-module PSTeams
 
 [string]$scriptPath = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 [string]$scriptConfigPath = "$scriptPath\config.json" 
-$scriptConfig = Get-Content -Raw -Path  $scriptConfigPath | ConvertFrom-Json
+$scriptConfig = Get-Content -raw -Path  $scriptConfigPath | ConvertFrom-Json
 
 #Tenant configuration
 [string]$clientId = $scriptConfig.ScriptMainConfig.TenantConfig.clientId
@@ -115,7 +115,7 @@ Function Get-M365Health(){
 
     try {
             $Result = Get-GraphResult -Url $uri -Token $Token -Method $Method
-            Write-Verbose "New messages successfully collected"
+            Write-Verbose "Messages successfully collected"
             return $Result.value
     }
     catch {
@@ -147,7 +147,7 @@ function Send-FormattedTelegramMessage {
     $MessageID = $message.Id
     $WorkloadDisplayName = $message.WorkloadDisplayName
     $Status = $message.Status
-    $MessageTitle = $message.Title
+    #$MessageTitle = $message.Title
 
     $MessageDetails = $message.Messages[$message.Messages.Count-1].MessageText
 
@@ -164,9 +164,9 @@ function Send-FormattedTelegramMessage {
     $MessageDetailsForTgm = $MessageDetailsForTgm -replace 'End time\:','*End time:**'
     $MessageDetailsForTgm = $MessageDetailsForTgm -replace 'User impact\:','*User impact:*'
     $MessageDetailsForTgm = $MessageDetailsForTgm -replace 'Final status\:','*Final status:*'
-    $MessageDetailsForTgm = $MessageDetailsForTgm -split "`n" | Select-object -Skip 1 #needs to remove duplicaded Title
+    #$MessageDetailsForTgm = $MessageDetailsForTgm -split "`n" | Select-object -Skip 1 #needs to remove duplicaded Title
 
-    $NotificationTitle = "$WorkloadDisplayName : $MessageTitle - $Status ($MessageID)"
+    $NotificationTitle = "$WorkloadDisplayName : $Status ($MessageID)"
 
     $FinalMessageForTgm = "*$NotificationTitle* `n$MessageDetailsForTgm"
 
@@ -259,7 +259,6 @@ $TimeRange = -$($RefreshTime)
 $TimeCheckPoint = Get-Date
 Write-Verbose "Time Chekpoint: $TimeCheckPoint"
 $LastRunTime = $($TimeCheckPoint.AddMinutes($TimeRange)).ToUniversalTime()
-# $LastRunTime = $TimeCheckPoint.AddMinutes(-5000)
 Write-Verbose "Last run time: $LastRunTime"
 
 $NewMessages = $ServiceHealth | Where-Object {$_.MessageType -eq "Incident" -and $($(get-date $_.LastUpdatedTime).ToUniversalTime()) -gt $(get-date $LastRunTime)}
@@ -285,7 +284,7 @@ if ($NewMessages) {
             }
         }
 }else {
-    Write-Verbose "There are no new messages"
+    Write-Verbose "There are no new messages to send"
 }
 
 
