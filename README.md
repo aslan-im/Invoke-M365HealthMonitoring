@@ -16,13 +16,13 @@ graphUrl - default value allready filled
 #Time frame configuration (in minutes)
 RefreshTime - This value defines of how you schedule a script. If you sheduled it for running every 60 minutes, enter the "60" value.  
 
-#Messengers config
-teamsWebhookID - Enter here your Teams chat/channel webhook ID. 
-telegramBotToken - Required to pre-register telegram bor using @botFather and fill here bot token
-telegramChannelId - Enter here chat ID where bot should send notifications. If you want to send notifications to telegram channel, please do not forget to add bot to channel as member with Publisher rights
+#Messengers config  
+teamsWebhookID - Enter here your Teams chat/channel webhook ID.  
+telegramBotToken - Required to pre-register telegram bor using @botFather and fill here bot token  
+telegramChannelId - Enter here chat ID where bot should send notifications. If you want to send notifications to telegram channel, please do not forget to add bot to channel as member with Publisher rights  
 
-#Usage example
-Invoke-M365HealthMonitoring.ps1 [-Messenger {All | Telegram | Teams}
+#Usage example  
+Invoke-M365HealthMonitoring.ps1 [-Messenger {All | Telegram | Teams}  
 
 Messages example (image is clickable)  
-[![Telegram_Example](/images/Readme_image_1.png)](https://t.me/M365_Health)
+[![Telegram_Example](/images/Readme_image_1.png)](https://t.me/M365_Health)  
