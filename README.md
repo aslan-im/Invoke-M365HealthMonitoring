@@ -7,14 +7,14 @@ Pre-requisites:
 
 Use config.json file for configure script credentials, such as:  
 ![Telegram_Example](/images/Readme_image_2.png)  
-#Tenant configuration
-clientId - ID of AAD registered application
-tenantId - ID of your M365 tenant
-clientSecret  - Client (application) secret.
-graphUrl - default value allready filled
+#Tenant configuration  
+clientId - ID of AAD registered application  
+tenantId - ID of your M365 tenant  
+clientSecret  - Client (application) secret.  
+graphUrl - default value allready filled  
 
 #Time frame configuration (in minutes)
-RefreshTime - This value defines of how you schedule a script. If you sheduled it for running every 60 minutes, enter the "60" value.
+RefreshTime - This value defines of how you schedule a script. If you sheduled it for running every 60 minutes, enter the "60" value.  
 
 #Messengers config
 teamsWebhookID - Enter here your Teams chat/channel webhook ID. 
