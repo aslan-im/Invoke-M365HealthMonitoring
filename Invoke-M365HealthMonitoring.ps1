@@ -261,7 +261,9 @@ Write-Verbose "Time Chekpoint: $TimeCheckPoint"
 $LastRunTime = $($TimeCheckPoint.AddMinutes($TimeRange)).ToUniversalTime()
 Write-Verbose "Last run time: $LastRunTime"
 
-$NewMessages = $ServiceHealth | Where-Object {$_.MessageType -eq "Incident" -and $($(get-date $_.LastUpdatedTime).ToUniversalTime()) -gt $(get-date $LastRunTime)}
+$NewMessages = $ServiceHealth | Where-Object {$_.MessageType -eq "Incident" -and $($(get-date $_.LastUpdatedTime).ToUniversalTime()) -gt $(get-date $LastRunTime) -and `
+$($(get-date $_.LastUpdatedTime).ToUniversalTime()) -lt $($($TimeCheckPoint).ToUniversalTime())}
+
 $NewMessagesCount = $NewMessages.count
 
 if ($NewMessages) {
